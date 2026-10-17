@@ -1,14 +1,14 @@
 {
   "serviceName": "workflow-task-engine",
   "version": "1.0.0",
-  "timestamp": "2026-10-17T18:50:00.829Z",
+  "timestamp": "2026-10-17T19:25:18.720Z",
   "overallPass": true,
   "metrics": {
     "totalChecks": 8,
     "passedStatusChecks": 8,
     "passedLatencyChecks": 8,
     "passedSecurityChecks": 8,
-    "averageLatencyMs": 3.86
+    "averageLatencyMs": 5.41
   },
   "results": [
     {
@@ -16,7 +16,7 @@
       "expectedStatus": 200,
       "actualStatus": 200,
       "statusPass": true,
-      "latencyMs": 23.5653,
+      "latencyMs": 33.2933,
       "latencyPass": true,
       "securityHeadersPass": true
     },
@@ -25,7 +25,7 @@
       "expectedStatus": 200,
       "actualStatus": 200,
       "statusPass": true,
-      "latencyMs": 2.0468,
+      "latencyMs": 2.7051,
       "latencyPass": true,
       "securityHeadersPass": true
     },
@@ -34,7 +34,7 @@
       "expectedStatus": 201,
       "actualStatus": 201,
       "statusPass": true,
-      "latencyMs": 1.4213,
+      "latencyMs": 1.7205,
       "latencyPass": true,
       "securityHeadersPass": true
     },
@@ -43,16 +43,16 @@
       "expectedStatus": 400,
       "actualStatus": 400,
       "statusPass": true,
-      "latencyMs": 0.9259,
+      "latencyMs": 1.2295,
       "latencyPass": true,
       "securityHeadersPass": true
     },
     {
-      "endpoint": "GET /api/v1/tasks/:id (task-614e3e36)",
+      "endpoint": "GET /api/v1/tasks/:id (task-85c12f06)",
       "expectedStatus": 200,
       "actualStatus": 200,
       "statusPass": true,
-      "latencyMs": 0.9159,
+      "latencyMs": 1.3554,
       "latencyPass": true,
       "securityHeadersPass": true
     },
@@ -61,7 +61,7 @@
       "expectedStatus": 200,
       "actualStatus": 200,
       "statusPass": true,
-      "latencyMs": 0.8365,
+      "latencyMs": 1.2853,
       "latencyPass": true,
       "securityHeadersPass": true
     },
@@ -70,7 +70,7 @@
       "expectedStatus": 204,
       "actualStatus": 204,
       "statusPass": true,
-      "latencyMs": 0.5758,
+      "latencyMs": 0.8473,
       "latencyPass": true,
       "securityHeadersPass": true
     },
@@ -79,7 +79,7 @@
       "expectedStatus": 404,
       "actualStatus": 404,
       "statusPass": true,
-      "latencyMs": 0.5906,
+      "latencyMs": 0.8116,
       "latencyPass": true,
       "securityHeadersPass": true
     }
