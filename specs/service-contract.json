@@ -1,0 +1,121 @@
+{
+  "serviceName": "workflow-task-engine",
+  "version": "1.0.0",
+  "description": "Collaborative Workflow & Task Management Engine microservice architected via Chat UX",
+  "generatedBy": "Chat UX (Architect Persona)",
+  "timestamp": "2026-10-17T20:30:00Z",
+  "entities": {
+    "Task": {
+      "primaryKey": "id",
+      "fields": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "title": {
+          "type": "string",
+          "required": true,
+          "minLength": 3,
+          "maxLength": 100
+        },
+        "description": {
+          "type": "string",
+          "required": false,
+          "default": ""
+        },
+        "priority": {
+          "type": "string",
+          "required": true,
+          "enum": ["low", "medium", "high", "critical"],
+          "default": "medium"
+        },
+        "status": {
+          "type": "string",
+          "required": true,
+          "enum": ["backlog", "in_progress", "review", "completed"],
+          "default": "backlog"
+        },
+        "dueDate": {
+          "type": "string",
+          "required": false
+        },
+        "tags": {
+          "type": "array",
+          "required": false,
+          "default": []
+        },
+        "createdAt": {
+          "type": "string",
+          "required": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "required": true
+        }
+      }
+    }
+  },
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/v1/health",
+      "description": "System health and runtime status probe",
+      "requiresAuth": false,
+      "expectedStatus": 200,
+      "errorStatuses": [500]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/tasks",
+      "description": "List all workflow tasks with optional query filters (status, priority, tag)",
+      "requiresAuth": false,
+      "expectedStatus": 200,
+      "errorStatuses": [500]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/tasks",
+      "description": "Create a new workflow task with validation",
+      "requiresAuth": false,
+      "requestBody": {
+        "required": ["title"],
+        "properties": ["title", "description", "priority", "status", "dueDate", "tags"]
+      },
+      "expectedStatus": 201,
+      "errorStatuses": [400, 500]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/tasks/:id",
+      "description": "Retrieve task details by unique identifier",
+      "requiresAuth": false,
+      "expectedStatus": 200,
+      "errorStatuses": [404, 500]
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/tasks/:id",
+      "description": "Partially update task fields (status, priority, title, description)",
+      "requiresAuth": false,
+      "expectedStatus": 200,
+      "errorStatuses": [400, 404, 500]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/tasks/:id",
+      "description": "Delete a task by unique identifier",
+      "requiresAuth": false,
+      "expectedStatus": 204,
+      "errorStatuses": [404, 500]
+    }
+  ],
+  "qualityGateCriteria": {
+    "minimumTestCoverage": 90,
+    "maxResponseTimeMs": 100,
+    "requiredSecurityHeaders": [
+      "x-content-type-options",
+      "x-frame-options",
+      "x-xss-protection"
+    ]
+  }
+}

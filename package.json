@@ -1,0 +1,30 @@
+{
+  "name": "multi-stage-ai-workflow",
+  "version": "1.0.0",
+  "description": "Multi-Stage AI Workflow Across UX Types (Chat -> IDE -> CLI)",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "workflow": "./bin/workflow-runner.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test tests/**/*.test.js",
+    "workflow": "node bin/workflow-runner.js",
+    "workflow:stage1": "node bin/workflow-runner.js --stage 1",
+    "workflow:stage2": "node bin/workflow-runner.js --stage 2",
+    "workflow:stage3": "node bin/workflow-runner.js --stage 3",
+    "quality-gate": "node src/cli/quality-gate.js",
+    "dashboard": "node scripts/serve-dashboard.js"
+  },
+  "keywords": [
+    "ai-workflow",
+    "prompt-chaining",
+    "chat-to-ide",
+    "ide-to-cli",
+    "multi-stage-ai",
+    "tool-agnostic"
+  ],
+  "author": "Dushimimanaprince",
+  "license": "MIT"
+}

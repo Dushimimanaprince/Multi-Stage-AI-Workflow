@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MultiStageServiceContract",
+  "description": "Standardized schema for chaining Chat UX architecture specifications into IDE and CLI AI tools",
+  "type": "object",
+  "required": [
+    "serviceName",
+    "version",
+    "description",
+    "entities",
+    "endpoints",
+    "qualityGateCriteria"
+  ],
+  "properties": {
+    "serviceName": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "version": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "entities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["fields", "primaryKey"],
+        "properties": {
+          "primaryKey": { "type": "string" },
+          "fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": ["type", "required"],
+              "properties": {
+                "type": { "type": "string", "enum": ["string", "number", "boolean", "date", "array", "object"] },
+                "required": { "type": "boolean" },
+                "enum": { "type": "array", "items": { "type": "string" } },
+                "minLength": { "type": "integer" },
+                "maxLength": { "type": "integer" },
+                "default": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "endpoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["method", "path", "description", "expectedStatus"],
+        "properties": {
+          "method": { "type": "string", "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"] },
+          "path": { "type": "string" },
+          "description": { "type": "string" },
+          "requiresAuth": { "type": "boolean" },
+          "requestBody": { "type": "object" },
+          "expectedStatus": { "type": "integer" },
+          "errorStatuses": { "type": "array", "items": { "type": "integer" } }
+        }
+      }
+    },
+    "qualityGateCriteria": {
+      "type": "object",
+      "required": ["minimumTestCoverage", "maxResponseTimeMs", "requiredSecurityHeaders"],
+      "properties": {
+        "minimumTestCoverage": { "type": "number", "minimum": 0, "maximum": 100 },
+        "maxResponseTimeMs": { "type": "number" },
+        "requiredSecurityHeaders": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
