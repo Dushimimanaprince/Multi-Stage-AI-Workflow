@@ -1,0 +1,87 @@
+{
+  "serviceName": "workflow-task-engine",
+  "version": "1.0.0",
+  "timestamp": "2026-10-17T18:50:00.829Z",
+  "overallPass": true,
+  "metrics": {
+    "totalChecks": 8,
+    "passedStatusChecks": 8,
+    "passedLatencyChecks": 8,
+    "passedSecurityChecks": 8,
+    "averageLatencyMs": 3.86
+  },
+  "results": [
+    {
+      "endpoint": "GET /api/v1/health",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "statusPass": true,
+      "latencyMs": 23.5653,
+      "latencyPass": true,
+      "securityHeadersPass": true
+    },
+    {
+      "endpoint": "GET /api/v1/tasks",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "statusPass": true,
+      "latencyMs": 2.0468,
+      "latencyPass": true,
+      "securityHeadersPass": true
+    },
+    {
+      "endpoint": "POST /api/v1/tasks (valid)",
+      "expectedStatus": 201,
+      "actualStatus": 201,
+      "statusPass": true,
+      "latencyMs": 1.4213,
+      "latencyPass": true,
+      "securityHeadersPass": true
+    },
+    {
+      "endpoint": "POST /api/v1/tasks (invalid 400 check)",
+      "expectedStatus": 400,
+      "actualStatus": 400,
+      "statusPass": true,
+      "latencyMs": 0.9259,
+      "latencyPass": true,
+      "securityHeadersPass": true
+    },
+    {
+      "endpoint": "GET /api/v1/tasks/:id (task-614e3e36)",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "statusPass": true,
+      "latencyMs": 0.9159,
+      "latencyPass": true,
+      "securityHeadersPass": true
+    },
+    {
+      "endpoint": "PATCH /api/v1/tasks/:id",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "statusPass": true,
+      "latencyMs": 0.8365,
+      "latencyPass": true,
+      "securityHeadersPass": true
+    },
+    {
+      "endpoint": "DELETE /api/v1/tasks/:id",
+      "expectedStatus": 204,
+      "actualStatus": 204,
+      "statusPass": true,
+      "latencyMs": 0.5758,
+      "latencyPass": true,
+      "securityHeadersPass": true
+    },
+    {
+      "endpoint": "GET /api/v1/tasks/:id (404 check)",
+      "expectedStatus": 404,
+      "actualStatus": 404,
+      "statusPass": true,
+      "latencyMs": 0.5906,
+      "latencyPass": true,
+      "securityHeadersPass": true
+    }
+  ]
+}
